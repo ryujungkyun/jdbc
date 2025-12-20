@@ -41,3 +41,12 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// build.gradle
+test {
+    useJUnitPlatform()
+    // Mockito 에이전트를 명시적으로 로드하여 경고 제거
+    jvmArgs("-XX:+EnableDynamicAgentLoading")
+    jvmArgs("-Xshare:off")
+}
+
